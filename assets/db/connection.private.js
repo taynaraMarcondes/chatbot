@@ -11,7 +11,7 @@ const dbConnection = async (context) => {
 
   console.log("connected", config);
   try {
-    const db = new Database(config)
+    const db = new Database(config);
     return db;
     
   } catch (error) {
@@ -19,7 +19,7 @@ const dbConnection = async (context) => {
   }
 
 };
-module.exports = dbConnection
+module.exports = dbConnection;
 
 class Database {
   constructor(config) {
