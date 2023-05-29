@@ -1,0 +1,6 @@
+version: "2"
+authtoken: your_authtoken
+tunnels:
+  db:
+    proto: tcp
+    addr: db:3306 

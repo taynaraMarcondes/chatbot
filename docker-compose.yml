@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass1234
+    ports:
+    - 3306:3306
+    volumes:
+    - ./assets/db:/docker-entrypoint-initdb.d
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    depends_on:
+      - db
+    command: 
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./assets/ngrok/ngrok.yml:/etc/ngrok.yml
+    ports:
+    - 4040:4040
